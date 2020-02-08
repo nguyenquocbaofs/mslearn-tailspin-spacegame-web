@@ -45,6 +45,13 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
+- task: DotNetCoreCLI@2
+  displayName: 'Install ReportGenerator'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'install --global dotnet-reportgenerator-globaltool'
+
 - template: templates/build.yml
   parameters: 
     buildConfiguration: 'Debug'
